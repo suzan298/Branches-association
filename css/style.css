@@ -127,7 +127,7 @@
   text-decoration: none;
 }
 
-/* ===== Projects ===== */
+
 .projects-section {
   background: #fff;
   padding: 80px;
@@ -153,7 +153,15 @@
   margin-bottom: 35px;
   font-size: 14px;
   line-height: 1.6;
+  height: auto;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
+.project-box p {
+  margin: 0;
+  line-height: 1.6;
+}
+
 
 .project-box.left {
   margin-left: 0;
@@ -220,6 +228,7 @@
   .project-box {
     width: 100%;
     margin-left: 0 !important;
+    box-sizing: border-box;
   }
 
 
