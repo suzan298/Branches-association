@@ -162,4 +162,71 @@
 .project-box.right {
   margin-left: 220px;
 }
+@media (max-width: 768px) {
+
+ 
+  .hero,
+  .financing,
+  .services,
+  .projects-section {
+    padding: 30px 20px;
+  }
+
+  
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .hero-img {
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .hero-img img {
+    width: 220px;
+    height: 220px;
+  }
+
+
+  .service-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .financing {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .fin-text {
+    width: 100%;
+  }
+
+  .fin-img {
+    margin-top: 20px;
+  }
+
+  .fin-img img {
+    width: 220px;
+    height: 220px;
+  }
+
+
+  .project-box {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
 
