@@ -1,113 +1,488 @@
+/* =========================================================
+   Branches Association - Services Page Styles
+   Scoped specifically to services.html
+   ========================================================= */
 
-
-.page {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
-}
-body {
-  margin: 0;
-  font-family: 'Poppins', 'Cairo', sans-serif;
-  background: #f7f7f7;
+/* Container */
+.services-page-container {
+  width: min(var(--container-max, 1100px), 92%);
+  margin: 0 auto;
 }
 
+/* ============ 1. Services Hero Section ============ */
 
-.page {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+.services-hero {
+  background: linear-gradient(180deg, var(--tint) 0%, var(--bg) 100%);
+  padding: clamp(48px, 6vw, 76px) 0 clamp(36px, 5vw, 56px);
+  border-bottom: 1px solid rgba(95, 107, 9, 0.12);
+  text-align: center;
+  position: relative;
 }
 
-
-.top-bar {
-  margin-bottom: 30px;
+.services-hero-container {
+  width: min(var(--container-max, 1100px), 92%);
+  margin: 0 auto;
 }
 
-.top-bar h1 {
-  font-size: 28px;
+.services-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  margin-bottom: 16px;
+  font-size: var(--fs-xs, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--brand, #5F6B09);
+  background: rgba(95, 107, 9, 0.1);
+  border: 1px solid rgba(95, 107, 9, 0.25);
+  border-radius: var(--radius-pill, 25px);
 }
 
+.services-hero-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.services-hero-title {
+  font-size: clamp(2rem, 1.5rem + 1.8vw, 2.75rem);
+  font-weight: 700;
+  color: var(--brand, #5F6B09);
+  margin: 0 0 16px 0;
+  line-height: 1.25;
+}
+
+html.ar .services-hero-title,
+html[dir="rtl"] .services-hero-title {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+.services-hero-subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  color: var(--text-2, #555555);
+  line-height: 1.75;
+}
+
+html.ar .services-hero-subtitle,
+html[dir="rtl"] .services-hero-subtitle {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+/* ============ 2. Services Overview & Grid Section ============ */
+
+.services-main-section {
+  padding: clamp(48px, 6vw, 80px) 0 clamp(64px, 8vw, 96px);
+  background: var(--bg, #f8f9f5);
+}
+
+.services-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(36px, 5vw, 56px) auto;
+}
+
+.services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  margin-bottom: 14px;
+  font-size: var(--fs-xs, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--brand, #5F6B09);
+  background: var(--tint, #f1f5ec);
+  border: 1px solid rgba(95, 107, 9, 0.22);
+  border-radius: var(--radius-pill, 25px);
+}
+
+.services-section-title {
+  font-size: var(--fs-h2, clamp(1.5rem, 1.25rem + 1vw, 2.125rem));
+  font-weight: 700;
+  color: var(--brand, #5F6B09);
+  margin: 0 0 14px 0;
+  line-height: 1.3;
+}
+
+html.ar .services-section-title,
+html[dir="rtl"] .services-section-title {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+.services-section-desc {
+  font-size: var(--fs-body, 1rem);
+  color: var(--text-2, #555555);
+  line-height: 1.7;
+  margin: 0 auto;
+}
+
+html.ar .services-section-desc,
+html[dir="rtl"] .services-section-desc {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+/* ============ Service Cards Grid ============ */
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 2.5vw, 28px);
 }
 
-
+/* Individual Service Article Card */
 .service-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface, #ffffff);
+  border-radius: var(--radius-lg, 20px);
+  border: 1px solid rgba(95, 107, 9, 0.15);
+  box-shadow: var(--shadow-sm, 0 3px 10px rgba(0, 0, 0, 0.05));
+  overflow: hidden;
   text-decoration: none;
   color: inherit;
-  display: block;
-  background: #fff;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-  transition: 0.3s;
-  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.service-card,
+.service-card a,
+.service-card h3,
+.service-card p {
+  text-decoration: none;
+}
+
+.service-card a {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: inherit;
 }
 
 .service-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md, 0 8px 25px rgba(0, 0, 0, 0.05));
+  border-color: var(--brand, #5F6B09);
 }
 
+.service-card:focus-visible {
+  outline: 3px solid var(--brand, #5F6B09);
+  outline-offset: 2px;
+}
 
-.service-card img {
+/* Card Media Header */
+.service-card-media {
   width: 100%;
-  height: 180px;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--tint, #f1f5ec);
+  position: relative;
+}
+
+.service-card-media img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center 30%;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-
-.card-text {
-  padding: 16px;
+.service-card:hover .service-card-media img {
+  transform: scale(1.05);
 }
 
+/* Category Badge on Image */
+.service-card-tag {
+  position: absolute;
+  top: 14px;
+  inset-inline-start: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  color: var(--brand-dark, #4E5807);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill, 25px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.4px;
+}
 
-.card-text h3 {
-  font-size: 16px;
+.service-card-tag svg {
+  width: 12px;
+  height: 12px;
+  color: var(--brand, #5F6B09);
+}
+
+/* Card Content Body */
+.service-card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 24px 20px;
+  text-align: start;
+}
+
+.service-card-number {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--accent, #9B5A13);
+  letter-spacing: 0.8px;
+  margin-bottom: 6px;
+}
+
+.service-card-title {
+  font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  font-weight: 700;
+  color: var(--brand, #5F6B09);
+  margin: 0 0 10px 0;
+  line-height: 1.32;
+  transition: color 0.2s ease;
+}
+
+.service-card:hover .service-card-title {
+  color: var(--brand-dark, #4E5807);
+}
+
+html.ar .service-card-title,
+html[dir="rtl"] .service-card-title {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+.service-card-desc {
+  font-size: var(--fs-sm, 0.875rem);
+  color: var(--text-2, #555555);
+  line-height: 1.65;
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+html.ar .service-card-desc,
+html[dir="rtl"] .service-card-desc {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+/* Action Indicator */
+.service-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-xs, 0.8125rem);
   font-weight: 600;
-  margin: 0;
-  color: #5F6B09;
+  color: var(--brand, #5F6B09);
+  margin-top: auto;
+  transition: color 0.2s ease, gap 0.2s ease;
 }
 
-
-.card-text p {
-  font-size: 13px;
-  color: #777;
-  margin-top: 6px;
-  line-height: 1.5;
+.service-card-arrow {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.2;
+  transition: transform 0.2s ease;
 }
 
+.service-card:hover .service-card-action {
+  color: var(--brand-dark, #4E5807);
+  gap: 11px;
+}
 
-a {
+.service-card:hover .service-card-arrow {
+  transform: translateX(3px);
+}
+
+html[dir="rtl"] .service-card-arrow,
+html.ar .service-card-arrow {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .service-card:hover .service-card-arrow,
+html.ar .service-card:hover .service-card-arrow {
+  transform: scaleX(-1) translateX(3px);
+}
+
+/* ============ 3. Services Call-to-Action Banner ============ */
+
+.services-cta-section {
+  padding: 0 0 clamp(64px, 8vw, 96px);
+  background: var(--bg, #f8f9f5);
+}
+
+.services-cta-card {
+  background: linear-gradient(135deg, var(--tint, #f1f5ec) 0%, rgba(95, 107, 9, 0.08) 100%), var(--surface, #ffffff);
+  border: 1px solid rgba(95, 107, 9, 0.2);
+  border-radius: var(--radius-xl, 30px);
+  padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px);
+  text-align: center;
+  box-shadow: var(--shadow-sm, 0 3px 10px rgba(0, 0, 0, 0.05));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  margin-bottom: 14px;
+  font-size: var(--fs-xs, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--brand, #5F6B09);
+  background: var(--surface, #ffffff);
+  border: 1px solid rgba(95, 107, 9, 0.2);
+  border-radius: var(--radius-pill, 25px);
+}
+
+.services-cta-title {
+  font-size: clamp(1.4rem, 1.15rem + 1vw, 2rem);
+  font-weight: 700;
+  color: var(--brand, #5F6B09);
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+html.ar .services-cta-title,
+html[dir="rtl"] .services-cta-title {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+.services-cta-desc {
+  max-width: 640px;
+  margin: 0 auto 28px auto;
+  font-size: var(--fs-body, 1rem);
+  color: var(--text-2, #555555);
+  line-height: 1.7;
+}
+
+html.ar .services-cta-desc,
+html[dir="rtl"] .services-cta-desc {
+  font-family: var(--font-ar, 'Cairo', sans-serif);
+}
+
+.services-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.services-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 30px;
+  background: var(--brand, #5F6B09);
+  color: #ffffff;
+  border-radius: var(--radius-pill, 25px);
+  font-weight: 600;
+  font-size: var(--fs-body, 1rem);
   text-decoration: none;
-  color: inherit;
-}
-.service-card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(95, 107, 9, 0.24);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
-.service-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
+.services-btn-primary:hover {
+  background: var(--brand-dark, #4E5807);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(95, 107, 9, 0.32);
 }
 
-.card-text {
-  padding: 14px;
+.services-btn-primary:focus-visible {
+  outline: 3px solid var(--accent, #9B5A13);
+  outline-offset: 2px;
 }
 
-.card-text h3 {
-  font-size: 14px;
+.services-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  background: var(--surface, #ffffff);
+  color: var(--brand, #5F6B09);
+  border: 1.5px solid rgba(95, 107, 9, 0.3);
+  border-radius: var(--radius-pill, 25px);
   font-weight: 600;
+  font-size: var(--fs-body, 1rem);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
 }
 
-.card-text p {
-  font-size: 12px;
-  color: #777;
-  margin-top: 6px;
+.services-btn-secondary:hover {
+  background: var(--tint, #f1f5ec);
+  border-color: var(--brand, #5F6B09);
+  color: var(--brand-dark, #4E5807);
+  transform: translateY(-2px);
+}
+
+.services-btn-secondary:focus-visible {
+  outline: 3px solid var(--brand, #5F6B09);
+  outline-offset: 2px;
+}
+
+/* ============ Responsive Breakpoints ============ */
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-hero {
+    padding: 42px 0 36px 0;
+  }
+
+  .services-main-section {
+    padding: 40px 0 56px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card-media {
+    height: 180px;
+  }
+
+  .service-card-body {
+    padding: 20px 18px;
+  }
+
+  .services-cta-card {
+    padding: 32px 18px;
+    border-radius: var(--radius-lg, 20px);
+  }
+
+  .services-cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .services-btn-primary,
+  .services-btn-secondary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .service-card-media img,
+  .service-card-arrow,
+  .services-btn-primary,
+  .services-btn-secondary {
+    transition: none !important;
+    transform: none !important;
+  }
 }
 
